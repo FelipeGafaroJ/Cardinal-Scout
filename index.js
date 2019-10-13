@@ -17,6 +17,7 @@ mongoose.connect(dbUrl, {useCreateIndex:true,useNewUrlParser: true})
 .catch(err =>console.log(err));
 
 
+
 const app=express();
 app.use(morgan('dev'));
 app.use(cors());
@@ -29,14 +30,10 @@ app.use('/api',router);
 
 app.set('port',process.env.PORT || 3000);
 
-
-app.get('/hola', function (req, res) {
-	res.send('Hello World!');
-  });
-
-
 app.listen(app.get('port'),()=>{
 	console.log('server on port ' + app.get('port'));
 	//console.log('ruta'+ __dirname + '\\public');
 	console.log(path.join(__dirname,'public'));
+
+	console.log('*********************************************************************************************')
 });
